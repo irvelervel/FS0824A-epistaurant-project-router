@@ -111,9 +111,17 @@ const Admin = () => {
               key={res._id}
               className="d-flex justify-content-between align-items-center"
             >
-              <span>
-                {res.name} per {res.numberOfPeople} il {res.dateTime}
-              </span>
+              <div>
+                <div>
+                  <p>
+                    {res.name} per {res.numberOfPeople} il{' '}
+                    {new Date(res.dateTime).toLocaleDateString()}
+                  </p>
+                </div>
+                <div>
+                  <p>{res.specialRequests}</p>
+                </div>
+              </div>
               <Button
                 variant="warning"
                 onClick={() => {
