@@ -9,6 +9,8 @@ import Reservation from './components/Reservation'
 import Admin from './components/Admin'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NotFound from './components/NotFound'
+import Menu from './components/Menu'
+import Details from './components/Details'
 
 // BrowserRouter infonderà al suo contenuto la capacità di navigare tra le rotte
 // ed utilizzare gli strumenti di react-router-dom
@@ -58,6 +60,33 @@ function App() {
                   <Row className="justify-content-center mt-3">
                     <Col xs={12} md={8} lg={6}>
                       <Reservation />
+                    </Col>
+                  </Row>
+                }
+              />
+              {/* creo una rotta per la pagina di menu */}
+              <Route
+                path="/menu"
+                element={
+                  <Row className="justify-content-center mt-3">
+                    <Col xs={12} md={8} lg={6}>
+                      <Menu />
+                    </Col>
+                  </Row>
+                }
+              />
+              {/* creo una rotta per la pagina di dettaglio */}
+              <Route
+                // i ":" nel path indicano che la parola che segue deve venire
+                // trattata come PARAMETRO
+                // il ":pastaId" è generico, indica qualsiasi cosa segua
+                // "/details/"
+                path="/details/:pastaId"
+                // :pastaId può essere "0", "1", "2", etc.
+                element={
+                  <Row className="justify-content-center mt-3">
+                    <Col xs={12} md={8} lg={6}>
+                      <Details />
                     </Col>
                   </Row>
                 }
